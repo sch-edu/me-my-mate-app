@@ -332,3 +332,332 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+/* ==========================================================================
+   MeMyMate by ARCT Upgrade Styles
+   ========================================================================== */
+
+/* Cinematic Splash Screen */
+.splash-retro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1a1236 0%, #0b081b 60%, #05030f 100%);
+  color: #f7f4ff;
+  overflow: hidden;
+  padding: 24px;
+}
+.splash-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.25) 0px,
+    rgba(0, 0, 0, 0.25) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.65;
+}
+.splash-bloom {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(142, 92, 255, 0.28) 0%, rgba(255, 140, 66, 0.15) 45%, transparent 70%);
+  filter: blur(50px);
+  animation: pulse-soft 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+.splash-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 520px;
+}
+.splash-logo-wrap {
+  position: relative;
+  margin-bottom: 24px;
+  display: grid;
+  place-items: center;
+}
+.splash-logo-wrap::after {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 180, 110, 0.35);
+  animation: orbit 14s linear infinite;
+  pointer-events: none;
+}
+.splash-logo-img {
+  width: min(290px, 78vw);
+  height: auto;
+  filter: drop-shadow(0 0 25px rgba(168, 130, 255, 0.65)) drop-shadow(0 0 50px rgba(255, 149, 0, 0.35));
+  animation: logo-glow 3s ease-in-out infinite alternate;
+}
+@keyframes logo-glow {
+  0% { transform: scale(0.97); filter: drop-shadow(0 0 18px rgba(168, 130, 255, 0.5)); }
+  100% { transform: scale(1.03); filter: drop-shadow(0 0 35px rgba(168, 130, 255, 0.85)) drop-shadow(0 0 55px rgba(255, 166, 0, 0.5)); }
+}
+.splash-retro-title {
+  font-family: var(--app-font-display);
+  font-size: clamp(40px, 9vw, 62px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 15%, #dfd6ff 55%, #ffa86b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(168, 130, 255, 0.4));
+}
+.splash-arct-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 185, 92, 0.5);
+  box-shadow: 0 0 24px rgba(255, 166, 0, 0.25), inset 0 0 12px rgba(255, 185, 92, 0.2);
+  font-family: var(--app-font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #ffd493;
+}
+.splash-tagline {
+  margin-top: 18px;
+  font-family: var(--app-font-sans);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b3accf;
+}
+.splash-footer-action {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.splash-enter-btn {
+  padding: 12px 28px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, hsl(var(--primary)), #806cf7);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--app-font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(109, 87, 238, 0.45);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.splash-enter-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(109, 87, 238, 0.6);
+}
+
+/* 30-Day Policy Banner */
+.policy-banner {
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  border: 1px solid hsl(var(--accent) / 0.35);
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--accent) / 0.09) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 6px 24px hsl(var(--accent) / 0.08);
+}
+.policy-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.policy-banner-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: hsl(var(--accent) / 0.16);
+  color: hsl(var(--accent));
+  flex-shrink: 0;
+}
+.policy-banner-text strong {
+  display: block;
+  font-family: var(--app-font-display);
+  font-size: 14px;
+  color: hsl(var(--card-foreground));
+  margin-bottom: 2px;
+}
+.policy-banner-text p {
+  margin: 0;
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.45;
+}
+.policy-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Sound & Settings Controls */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.setting-row:last-child {
+  border-bottom: none;
+}
+.setting-label strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.setting-label small {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+}
+.volume-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+.sound-test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.sound-test-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.6);
+  font-size: 11px;
+  font-family: var(--app-font-mono);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: inherit;
+}
+.sound-test-btn:hover {
+  background: hsl(var(--accent) / 0.16);
+  border-color: hsl(var(--accent) / 0.5);
+  color: hsl(var(--accent));
+  transform: translateY(-1px);
+}
+
+/* Auth Modal Styles */
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(8, 6, 18, 0.78);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+.auth-modal-card {
+  width: min(100%, 420px);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+.auth-tabs {
+  display: flex;
+  background: hsl(var(--muted));
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: hsl(var(--muted-foreground));
+  transition: all 0.18s ease;
+}
+.auth-tab.active {
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.auth-field {
+  margin-bottom: 14px;
+}
+.auth-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.auth-error {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: hsl(var(--destructive) / 0.12);
+  border: 1px solid hsl(var(--destructive) / 0.3);
+  color: hsl(var(--destructive));
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 680px) {
+  .policy-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .policy-banner-actions {
+    justify-content: flex-end;
+  }
+  .volume-slider-wrap {
+    min-width: 140px;
+  }
+}
